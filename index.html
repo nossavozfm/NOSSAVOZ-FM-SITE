@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" /> 
+<html lang="pt-BR" > 
 <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Nossa Voz FM - Feita para você!" />
@@ -17,7 +17,7 @@
     <link rel='dns-prefetch' href='//www.google-analytics.com' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="" type="image/x-icon" />
-    <title>RadCom Nossa Voz FM</title>
+    <title>Home - RadCom Nossa Voz FM</title>
 
     <!-- Fonte Awesome -->
     <link rel="preload" href="styles/fontawesome.css" as="style" />
@@ -27,14 +27,14 @@
     </noscript>
 
     <!-- CSS -->
-    <link rel="preload" href="css/style.css" />
-    <link rel="stylesheet" href="styles/style.css" media="print" onload="this.media='all'" />
+    <link rel="preload" href="css/style.css" as="style"/>
+    <link rel="stylesheet" href="styles/style.css" />
     <noscript>
         <link rel="stylesheet" href="styles/style.css" />
     </noscript>
 
     <!-- Google Fontes -->
-    <link rel="preaload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" /> 
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" /> 
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />    
     </noscript>
@@ -50,16 +50,17 @@
             </a>
         </nav>
         <h1>Rádio Comunitária Nossa Voz FM</h1>
-        <h3>Feita pra você!</h3>
+        <h2>Feita pra você!</h2>
         <h3>Duas Estradas - PB</h3>
     </header>
     <!-- Navbar -->
     <nav>
-        <ul class="nav-links"">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#programacao">Programação</a></li>
-            <li><a href="#sobre">A Rádio</a></li>
-            <li><a href="#contato">Contato</a></li>
+        <ul class="nav-links">
+            <li><a href="index.html" aria-label="Ver página inicial da rádio">Home</a></li>
+            <li><a href="programacao.html" aria-label="Ver programação da rádio">
+                Programação</a></li>
+            <li><a href="sobre.html" aria-label="Ver informações sobre a rádio">História da rádio</a></li>
+            <li><a href="contato.html" aria-label="Ver informações de contato da rádio">Contato</a></li>
         </ul>
     </nav>
     <!-- Main Content -->
@@ -95,6 +96,47 @@
     >
       <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Player do Footer-->
+    <section id="player-footer" aria-label="Player de áudio da rádio">
+        <!-- Metadados do Player -->
+        <div class="nv-meta">
+
+        <!-- Linha AO VIVO -->
+            <div class="nv-live-line">
+                <span class="nv-live-badge">
+                <span class="eq" aria-hidden="true">
+                    <i></i><i></i><i></i>
+                </span>
+                AO VIVO
+                </span>
+
+                <span class="nv-title">
+                Agora na Nossa Voz FM —
+                <span class="nv-cur" id="nv-cur-title">Contraponto</span>
+                </span>
+            </div>
+
+        <!-- Próximo programa -->
+            <div class="nv-next" id="nv-next">
+                A seguir: Outras Vozes (13:00)
+            </div>
+
+        <!-- Linha alternativa (quando minimizado) -->
+            <div class="nv-idle-line" id="nv-idle-line" hidden>
+                AO VIVO —
+                <span id="nv-idle-cur">Contraponto</span>
+            </div>
+            <!-- Botão de recolher -->
+            <button id="nv-toggle" type="button" aria-expanded="true" aria-label="Recolher ou mostrar a barra" title="Recolher/Mostrar">↓ Recolher</button>
+        </div>
+
+        <h2>🔴 Ao Vivo</h2>
+        <audio controls>
+        <source src="https://server04.srvsh.com.br:7682/stream;" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </section>
 </body> 
 <!-- Fim do documento HTML -->
 </html>
