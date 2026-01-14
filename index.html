@@ -100,59 +100,59 @@
     <!-- Player do Footer -->
     <section id="player-footer" aria-label="Player de áudio da Rádio Nossa Voz FM">
 
-    <!-- Título acessível -->
-    <h2 class="sr-only">Rádio Nossa Voz FM — Transmissão ao vivo</h2>
+        <!-- Título acessível -->
+        <h2 class="sr-only">Rádio Nossa Voz FM — Transmissão ao vivo</h2>
 
-    <!-- Metadados do Player -->
-    <div class="nv-meta">
+        <!-- Metadados do Player -->
+        <div class="nv-meta">
 
-        <!-- Linha AO VIVO -->
-        <div class="nv-live-line">
-        <span class="nv-live-badge">
-            <span class="eq" aria-hidden="true">
-            <i></i><i></i><i></i>
+            <!-- Linha AO VIVO -->
+            <div class="nv-live-line">
+            <span class="nv-live-badge">
+                <span class="eq" aria-hidden="true">
+                <i></i><i></i><i></i>
+                </span>
+                AO VIVO
             </span>
-            AO VIVO
-        </span>
 
-        <span class="nv-title">
-            Agora na Nossa Voz FM —
-            <strong id="nv-cur-title">Contraponto</strong>
-        </span>
+            <span class="nv-title">
+                Agora na Nossa Voz FM —
+                <strong id="nv-cur-title">Contraponto</strong>
+            </span>
+            </div>
+
+            <!-- Próximo programa -->
+            <div class="nv-next" id="nv-next">
+            A seguir: Outras Vozes (13:00)
+            </div>
+
+            <!-- Linha alternativa (modo compacto) -->
+            <div class="nv-idle-line" id="nv-idle-line" hidden>
+            AO VIVO —
+            <span id="nv-idle-cur">Contraponto</span>
+            </div>
+
         </div>
 
-        <!-- Próximo programa -->
-        <div class="nv-next" id="nv-next">
-        A seguir: Outras Vozes (13:00)
+        <!-- Player de áudio -->
+        <div class="nv-audio">
+            <audio controls>
+            <source src="https://server04.srvsh.com.br:7682/stream" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+            </audio>
         </div>
 
-        <!-- Linha alternativa (modo compacto) -->
-        <div class="nv-idle-line" id="nv-idle-line" hidden>
-        AO VIVO —
-        <span id="nv-idle-cur">Contraponto</span>
-        </div>
-
-    </div>
-
-    <!-- Player de áudio -->
-    <div class="nv-audio">
-        <audio controls>
-        <source src="https://server04.srvsh.com.br:7682/stream" type="audio/mpeg">
-        Seu navegador não suporta áudio.
-        </audio>
-    </div>
-
-    <!-- Botão recolher -->
-    <button
-        id="nv-toggle"
-        type="button"
-        aria-expanded="true"
-        aria-controls="player-footer"
-        aria-label="Recolher ou mostrar o player"
-        title="Recolher ou mostrar"
-    >
-        ↓ Recolher
-    </button>
+        <!-- Botão recolher -->
+        <button
+            id="nv-toggle"
+            type="button"
+            aria-expanded="true"
+            aria-controls="player-footer"
+            aria-label="Recolher ou mostrar o player"
+            title="Recolher ou mostrar"
+        >
+            ↓ Recolher
+        </button>
 
     </section>
 
