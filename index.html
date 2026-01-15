@@ -1,162 +1,192 @@
 <!DOCTYPE html>
-<html lang="pt-BR" > 
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Nossa Voz FM - Feita para você!" />
-    <!-- Palavras-chave para SEO e buscas -->
-    <meta name="keywords" content="rádio, música, notícias, entretenimento" />
-    <meta name="author" content="RadCom Nossa Voz FM" />
-    <meta name="robots" content="index, follow" />
-    <!-- Garante a renderização adequada e o zoom por toque em dispositivos móveis -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Pré-conexões e pré-busca de DNS para otimização de desempenho -->
-    <link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
-    <link rel='dns-prefetch' href='//www.googletagmanager.com' />
-    <!-- Google Analytics -->
-    <link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
-    <link rel='dns-prefetch' href='//www.google-analytics.com' />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="" type="image/x-icon" />
-    <title>Home - RadCom Nossa Voz FM</title>
-
-    <!-- Fonte Awesome -->
-    <link rel="preload" href="styles/fontawesome.css" as="style" />
-    <link rel="stylesheet" href="styles/fontawesome.css" media="print" onload="this.media='all'" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadCom Nossa Voz FM - Feita para você!</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Rádio Comunitária Nossa Voz FM de Duas Estradas - PB. Feita pra você!">
+    <meta name="keywords" content="rádio, música, notícias, entretenimento, Duas Estradas, Paraíba, rádio comunitária">
+    <meta name="author" content="RadCom Nossa Voz FM">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icones/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icones/apple-touch-icon.png">
+    
+    <!-- Pré-conexões -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          media="print" onload="this.media='all'">
+    
+    <!-- Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" 
+          media="print" onload="this.media='all'">
+    
+    <!-- CSS Principal -->
+    <link rel="preload" href="styles/style.css" as="style">
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <!-- Fallback para JavaScript desabilitado -->
     <noscript>
-        <link rel="stylesheet" href="styles/fontawesome.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+        <link rel="stylesheet" href="styles/style.css">
     </noscript>
+</head>
 
-    <!-- CSS -->
-    <link rel="preload" href="css/style.css" as="style"/>
-    <link rel="stylesheet" href="styles/style.css" />
-    <noscript>
-        <link rel="stylesheet" href="styles/style.css" />
-    </noscript>
-
-    <!-- Google Fontes -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" /> 
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />    
-    </noscript>
-</head> 
-
-<!-- Body Content -->
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Cabeçalho -->
+    <header role="banner">
         <nav class="logo">
-            <a href="index.html">
-                <img src="assets/icones/logotipo_png.png" alt="Logo da Rádio Nossa Voz FM" />
+            <a href="index.html" aria-label="Página inicial">
+                <img src="assets/icones/logotipo_png.png" 
+                     alt="Logo da Rádio Comunitária Nossa Voz FM" 
+                     width="120" height="60">
             </a>
         </nav>
         <h1>Rádio Comunitária Nossa Voz FM</h1>
-        <h2>Feita pra você!</h2>
-        <h3>Duas Estradas - PB</h3>
+        <p class="tagline">Feita pra você!</p>
+        <p class="location">Duas Estradas - PB</p>
     </header>
-    <!-- Navbar -->
-    <nav>
+    
+    <!-- Navegação Principal -->
+    <nav role="navigation" aria-label="Navegação principal">
         <ul class="nav-links">
-            <li><a href="index.html" aria-label="Ver página inicial da rádio">Home</a></li>
-            <li><a href="programacao.html" aria-label="Ver programação da rádio">
-                Programação</a></li>
-            <li><a href="sobre.html" aria-label="Ver informações sobre a rádio">História da rádio</a></li>
-            <li><a href="contato.html" aria-label="Ver informações de contato da rádio">Contato</a></li>
+            <li>
+                <a href="index.html" aria-current="page">
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="programacao.html">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <span>Programação</span>
+                </a>
+            </li>
+            <li>
+                <a href="sobre.html">
+                    <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                    <span>História</span>
+                </a>
+            </li>
+            <li>
+                <a href="contato.html">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <span>Contato</span>
+                </a>
+            </li>
         </ul>
     </nav>
-    <!-- Main Content -->
-    <main>
-        <section id="home">
-            <h2>Início</h2>
-            <p>Esta é a seção inicial da minha página web.</p>
-            <i class="fab fa-home"></i>
+    
+    <!-- Conteúdo Principal -->
+    <main role="main">
+        <section class="hero">
+            <h2 class="sr-only">Bem-vindo à Nossa Voz FM</h2>
+            <div class="hero-content">
+                <p>Ouça agora a <strong>Rádio Comunitária Nossa Voz FM</strong>, sua voz em Duas Estradas!</p>
+                <button class="play-button" onclick="document.querySelector('audio').play()">
+                    <i class="fa-solid fa-play"></i> Ouvir Agora
+                </button>
+            </div>
         </section>
-        <section id="sobre">
-            <h2>Sobre</h2>
-            <p>Informações sobre mim e meu site.</p>
-        </section>
-        <section id="programacao">
-            <h2>Programação</h2>
-            <p>Detalhes sobre a programação da rádio.</p>
-        </section>
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Formas de entrar em contato comigo.</p>
+        
+        <section class="destaques">
+            <h2>Programação em Destaque</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Contraponto</h3>
+                    <p>Segunda a sexta, 10h às 12h</p>
+                    <p>Análise e discussão sobre os principais temas da região</p>
+                </article>
+                <article class="card">
+                    <h3>Outras Vozes</h3>
+                    <p>Segunda a sexta, 13h às 15h</p>
+                    <p>Espaço para a comunidade compartilhar suas histórias</p>
+                </article>
+            </div>
         </section>
     </main>
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 RadCom Nossa Voz FM</p>
-    </footer>
+    
+    <!-- Player Container -->
+    <div class="player-container">
+        <section class="player-footer">
+            <div class="player-content">
+                <!-- Logo -->
+                <div class="nv-logo">
+                    <img src="assets/icones/logotipo_png.png" alt="Logo Rádio Nossa Voz FM">
+                </div>
+
+                <!-- Informações -->
+                <div class="nv-info">
+                    <div class="nv-live-line">
+                        <span class="nv-live-badge">
+                            <i class="fa-solid fa-circle-dot"></i>
+                            AO VIVO
+                        </span>
+                        <span class="nv-title">
+                            <span>Agora na Nossa Voz FM —</span>
+                            <strong id="nv-cur-title">Contraponto</strong>
+                            <span class="equalizer">
+                                <span class="equalizer-bar"></span>
+                                <span class="equalizer-bar"></span>
+                                <span class="equalizer-bar"></span>
+                                <span class="equalizer-bar"></span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="nv-next">
+                        A seguir: Outras Vozes (13:00)
+                    </div>
+                </div>
+
+                <!-- Player de Áudio -->
+                <div class="nv-audio">
+                    <audio controls preload="none">
+                        <source src="https://server04.srvsh.com.br:7682/stream;" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Botão Mostrar/Recolher (fora do container) -->
+    <button class="player-toggle" type="button" aria-expanded="true">
+        <i class="fa-solid fa-chevron-down"></i>
+        <span class="toggle-text">Recolher</span>
+    </button>
 
     <!-- WhatsApp Flutuante -->
-    <a
-      href="https://wa.me/552183991971127"
-      target="_blank"
-      class="whatsapp"
-      aria-label="Enviar mensagem pelo WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/5583991971127" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- Player do Footer -->
-    <section id="player-footer" aria-label="Player de áudio da Rádio Nossa Voz FM">
-
-        <!-- Título acessível -->
-        <h2 class="sr-only">Rádio Nossa Voz FM — Transmissão ao vivo</h2>
-
-        <!-- Metadados do Player -->
-        <div class="nv-meta">
-
-            <!-- Linha AO VIVO -->
-            <div class="nv-live-line">
-            <span class="nv-live-badge">
-                <span class="eq" aria-hidden="true">
-                <i></i><i></i><i></i>
-                </span>
-                AO VIVO
-            </span>
-
-            <span class="nv-title">
-                Agora na Nossa Voz FM —
-                <strong id="nv-cur-title">Contraponto</strong>
-            </span>
+    
+    <!-- Rodapé -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <p>&copy; 2025 RadCom Nossa Voz FM. Todos os direitos reservados.</p>
+            <p>Frequência: 87.9 MHz | Duas Estradas - Paraíba</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5583991971127" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-
-            <!-- Próximo programa -->
-            <div class="nv-next" id="nv-next">
-            A seguir: Outras Vozes (13:00)
-            </div>
-
-            <!-- Linha alternativa (modo compacto) -->
-            <div class="nv-idle-line" id="nv-idle-line" hidden>
-            AO VIVO —
-            <span id="nv-idle-cur">Contraponto</span>
-            </div>
-
         </div>
-
-        <!-- Player de áudio -->
-        <div class="nv-audio">
-            <audio controls>
-            <source src="https://server04.srvsh.com.br:7682/stream" type="audio/mpeg">
-            Seu navegador não suporta áudio.
-            </audio>
-        </div>
-
-        <!-- Botão recolher -->
-        <button
-            id="nv-toggle"
-            type="button"
-            aria-expanded="true"
-            aria-controls="player-footer"
-            aria-label="Recolher ou mostrar o player"
-            title="Recolher ou mostrar"
-        >
-            ↓ Recolher
-        </button>
-
-    </section>
-
-</body> 
-<!-- Fim do documento HTML -->
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+</body>
 </html>
