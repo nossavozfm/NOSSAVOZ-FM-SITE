@@ -1,4 +1,22 @@
-/* Reset e base */
+/* ============================================
+   RESET E CONFIGURAÇÕES BASE
+   ============================================ */
+:root {
+    --primary-color: #c1121f;
+    --primary-dark: #9d0e18;
+    --primary-light: #ff1e2d;
+    --secondary-color: #25d366; /* WhatsApp */
+    --dark-bg: #333;
+    --light-bg: #f5f5f5;
+    --text-dark: #333;
+    --text-light: #ffffff;
+    --text-gray: #444;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.2);
+    --border-radius: 6px;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,49 +25,117 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
     line-height: 1.6;
+    padding-bottom: 90px; /* Espaço para o player fixo */
 }
 
-/* Header */
+/* ============================================
+   TIPOGRAFIA E UTILITÁRIOS
+   ============================================ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* ============================================
+   HEADER
+   ============================================ */
 header {
-    background-color: #c1121f;
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-light);
     text-align: center;
-    padding: 1.8rem 1rem;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+    animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+    from { transform: translate(0, 0); }
+    to { transform: translate(30px, 30px); }
+}
+
+header .logo {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 header .logo img {
-    max-width: 120px;
-    margin-bottom: 0.6rem;
+    max-width: 140px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    transition: var(--transition);
+}
+
+header .logo img:hover {
+    transform: scale(1.05);
 }
 
 header h1 {
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 700;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
 }
 
-header h2 {
-    font-size: 1.2rem;
+header .tagline {
+    font-size: 1.3rem;
     font-weight: 400;
-    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
 }
 
-header h3 {
+header .location {
     font-size: 1rem;
     font-weight: 300;
-    opacity: 0.9;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
 }
 
-/* Navbar */
+/* ============================================
+   NAVEGAÇÃO
+   ============================================ */
 nav {
-    background-color: #ffffff;
-    border-bottom: 3px solid #c1121f;
+    background-color: var(--text-light);
+    border-bottom: 3px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -57,173 +143,710 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links li {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
 }
 
 .nav-links li a {
-    display: block;
-    padding: 0.9rem 1.4rem;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: var(--transition);
+    position: relative;
 }
 
-.nav-links li a:hover {
-    color: #c1121f;
+.nav-links li a:hover,
+.nav-links li a:focus {
+    color: var(--primary-color);
+    background-color: rgba(193, 18, 31, 0.05);
 }
 
-/* Main */
+.nav-links li a.active {
+    color: var(--primary-color);
+}
+
+.nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.nav-links li i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-links li span {
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   CONTEÚDO PRINCIPAL
+   ============================================ */
 main {
-    max-width: 1100px;
-    margin: 2.2rem auto;
-    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
 }
 
 section {
-    background-color: #ffffff;
-    padding: 1.6rem;
-    margin-bottom: 1.8rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background-color: var(--text-light);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+section:hover {
+    box-shadow: var(--shadow-hover);
 }
 
 section h2 {
-    color: #c1121f;
-    margin-bottom: 0.8rem;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #c1121f;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
     display: inline-block;
-    padding-bottom: 0.3rem;
+}
+
+section h3 {
+    color: var(--text-dark);
+    margin: 1rem 0 0.5rem;
+    font-size: 1.3rem;
 }
 
 section p {
-    color: #444;
+    color: var(--text-gray);
+    margin-bottom: 1rem;
 }
 
-/* Ícones */
-section i {
-    font-size: 2rem;
-    color: #c1121f;
-    margin-top: 0.6rem;
-}
-
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
-    background-color: #c1121f;
-    color: #ffffff;
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 90px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: var(--text-light);
+    padding: 2rem 1rem;
+    margin-top: 3rem;
 }
 
-/* Whatsapp Flutuante  */
-.whatsapp {
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   WHATSAPP FLUTUANTE
+   ============================================ */
+.whatsapp-float {
     position: fixed;
-    bottom: 110px;
+    bottom: 100px;
     right: 20px;
-    width: 55px;
-    height: 55px;
-    background-color: #25d366;
-    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow);
     z-index: 999;
+    transition: var(--transition);
 }
 
-/* Player Fixo */
-#player-footer {
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   PLAYER DE ÁUDIO FIXO - VERSÃO FINAL
+   ============================================ */
+
+.player-container {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #9b0d18;
-    color: #ffffff;
-    padding: 0.8rem 1rem;
+    z-index: 1000;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    height: 80px;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ESTADO RECOLHIDO */
+.player-container.collapsed {
+    height: 40px;
+    background: linear-gradient(90deg, #8a0c15, #a10e19);
+}
+
+/* CONTEÚDO DO PLAYER */
+.player-footer {
+    background: transparent;
+    padding: 0.8rem 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    z-index: 1000;
+    gap: 1.2rem;
+    height: 100%;
 }
 
-/* Acessibilidade */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-}
-
-/* Metadados do player */
-.nv-meta {
+/* LAYOUT DO CONTEÚDO */
+.player-content {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
     flex: 1;
-    min-width: 240px;
 }
 
+/* LOGO */
+.nv-logo img {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    border-radius: 4px;
+}
+
+/* INFORMAÇÕES */
+.nv-info {
+    flex: 1;
+    min-width: 0;
+}
+
+/* LINHA AO VIVO */
 .nv-live-line {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.9rem;
+    gap: 0.8rem;
+    margin-bottom: 0.2rem;
 }
 
+/* BADGE "AO VIVO" */
 .nv-live-badge {
-    background-color: #ffffff;
-    color: #c1121f;
+    background-color: var(--text-light);
+    color: var(--primary-color);
     padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-weight: bold;
-    display: flex;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: inline-flex;
     align-items: center;
     gap: 0.3rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Equalizer */
-.eq i {
-    display: inline-block;
-    width: 3px;
-    height: 10px;
-    background-color: #c1121f;
-    margin-right: 2px;
-    animation: eq 1s infinite ease-in-out;
+.nv-live-badge i {
+    color: #ff4757;
+    font-size: 0.7rem;
+    animation: pulse 1.5s infinite;
 }
 
-.eq i:nth-child(2) { animation-delay: .2s; }
-.eq i:nth-child(3) { animation-delay: .4s; }
-
-@keyframes eq {
-    0%, 100% { height: 6px; }
-    50% { height: 14px; }
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
-.nv-next {
-    font-size: 0.75rem;
-    opacity: 0.9;
+/* TÍTULO DO PROGRAMA */
+.nv-title {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-light);
 }
 
-/* Player */
-.nv-audio audio {
-    width: 260px;
-}
-
-/* Botão */
-#nv-toggle {
-    background-color: #ffffff;
-    color: #c1121f;
-    border: none;
-    padding: 0.4rem 0.7rem;
-    border-radius: 4px;
+#nv-cur-title {
     font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    color: var(--text-light);
+}
+
+/* PRÓXIMO PROGRAMA */
+.nv-next {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.1rem;
+}
+
+/* PLAYER DE ÁUDIO */
+.nv-audio {
+    flex-shrink: 0;
+}
+
+.nv-audio audio {
+    width: 250px;
+    height: 35px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.nv-audio audio::-webkit-media-controls-panel {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.nv-audio audio::-webkit-media-controls-current-time-display,
+.nv-audio audio::-webkit-media-controls-time-remaining-display {
+    color: var(--text-dark);
+    font-size: 0.8rem;
+}
+
+/* EQUALIZER ANIMADO */
+.equalizer {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 8px;
+    height: 16px;
+}
+
+.equalizer-bar {
+    width: 2px;
+    height: 8px;
+    background-color: var(--text-light);
+    border-radius: 1px;
+    animation: equalize 1.2s infinite ease-in-out;
+}
+
+.equalizer-bar:nth-child(2) { animation-delay: 0.1s; }
+.equalizer-bar:nth-child(3) { animation-delay: 0.2s; }
+.equalizer-bar:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes equalize {
+    0%, 100% { 
+        transform: scaleY(0.6); 
+        opacity: 0.7;
+    }
+    50% { 
+        transform: scaleY(1.4); 
+        opacity: 1;
+    }
+}
+
+/* BOTÃO MOSTRAR/RECOLHER */
+.player-toggle {
+    position: fixed;
+    bottom: 80px; /* Posição quando expandido */
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
     cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-#nv-toggle:hover {
-    background-color: #f1f1f1;
+/* Botão quando player recolhido */
+.player-container.collapsed ~ .player-toggle {
+    bottom: 40px;
 }
 
+.player-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.player-toggle:active {
+    transform: translateY(0);
+}
+
+/* Ícone do botão */
+.player-toggle i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotaciona ícone quando recolhido */
+.player-container.collapsed ~ .player-toggle i {
+    transform: rotate(180deg);
+}
+
+/* WHATSAPP FLUTUANTE */
+.whatsapp-float {
+    position: fixed;
+    bottom: 130px; /* Posição quando player aberto */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    z-index: 999;
+    transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* WhatsApp quando player recolhido */
+.player-container.collapsed ~ .whatsapp-float {
+    bottom: 90px;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   ESTILOS PARA ESTADO RECOLHIDO
+   ============================================ */
+
+/* Esconde elementos quando recolhido */
+.player-container.collapsed .nv-logo,
+.player-container.collapsed .nv-audio,
+.player-container.collapsed .nv-next,
+.player-container.collapsed .nv-live-badge {
+    display: none !important;
+}
+
+/* Layout minimalista quando recolhido */
+.player-container.collapsed .player-footer {
+    padding: 0.4rem 1rem;
+}
+
+.player-container.collapsed .nv-info {
+    margin: 0;
+    padding: 0;
+}
+
+.player-container.collapsed .nv-live-line {
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Mostra apenas título principal */
+.player-container.collapsed .nv-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.95;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
+/* Remove texto adicional */
+.player-container.collapsed .nv-title span:first-child {
+    display: none;
+}
+
+/* Estilo do título quando recolhido */
+.player-container.collapsed #nv-cur-title {
+    background: none;
+    padding: 0;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.player-container {
+    animation: slideUp 0.4s ease-out;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .player-content {
+        gap: 1rem;
+    }
+    
+    .nv-audio audio {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .player-container {
+        height: 70px;
+    }
+    
+    .player-container.collapsed {
+        height: 35px;
+    }
+    
+    .player-footer {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.6rem;
+    }
+    
+    .player-content {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .nv-logo {
+        display: none;
+    }
+    
+    .nv-audio {
+        width: 100%;
+        order: 3; /* Move o player para baixo */
+        margin-top: 0.5rem;
+    }
+    
+    .nv-audio audio {
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Botão toggle */
+    .player-toggle {
+        bottom: 65px;
+        right: 15px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .player-container.collapsed ~ .player-toggle {
+        bottom: 35px;
+    }
+    
+    /* WhatsApp */
+    .whatsapp-float {
+        bottom: 110px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .player-container.collapsed ~ .whatsapp-float {
+        bottom: 70px;
+    }
+    
+    /* Título em mobile */
+    .player-container.collapsed .nv-title {
+        font-size: 0.8rem;
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .player-container:not(.collapsed) {
+        height: auto;
+        min-height: 100px;
+    }
+    
+    .player-container.collapsed {
+        height: 30px;
+    }
+    
+    .player-toggle .toggle-text {
+        display: none; /* Mostra apenas ícone em mobile */
+    }
+    
+    .player-toggle i {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+    
+    .player-toggle {
+        width: 30px;
+        height: 25px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .player-container.collapsed .nv-title {
+        font-size: 0.75rem;
+        max-width: 50%;
+    }
+    
+    .whatsapp-float {
+        bottom: 100px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .player-container.collapsed ~ .whatsapp-float {
+        bottom: 60px;
+    }
+}
+
+/* ============================================
+   ACESSIBILIDADE
+   ============================================ */
+
+.player-toggle:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(193, 18, 31, 0.3);
+}
+
+.nv-audio audio:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* Estado de foco para leitores de tela */
+.player-toggle:focus-visible,
+.nv-audio audio:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   ESTADOS ESPECIAIS
+   ============================================ */
+
+/* Player tocando */
+.player-container.is-playing .equalizer {
+    opacity: 1;
+}
+
+/* Player pausado */
+.player-container:not(.is-playing) .equalizer {
+    opacity: 0.3;
+    animation-play-state: paused;
+}
+
+/* Mensagem de erro */
+.player-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    background: #ff6b6b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+.player-error .retry-btn {
+    background: white;
+    color: #ff6b6b;
+    border: none;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+}
+
+/* Loading skeleton */
+.nv-info.loading .nv-title,
+.nv-info.loading .nv-next {
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+    color: transparent;
+    min-height: 1em;
+    width: 70%;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
