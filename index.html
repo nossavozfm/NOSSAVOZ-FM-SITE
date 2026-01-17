@@ -56,15 +56,15 @@
             </a>
         </nav>
         <h1>Rádio Comunitária Nossa Voz FM</h1>
-        <p class="tagline">Feita pra você!</p>
-        <p class="location">Duas Estradas - PB</p>
+        <p class="logo-text ">Feita pra você!</p>
+        <p class="logo-text">Duas Estradas - PB</p>
     </header>
     
     <!-- Navegação Principal -->
     <nav role="navigation" aria-label="Navegação principal">
         <ul class="nav-links">
             <li>
-                <a href="index.html" aria-current="page">
+                <a href="#" aria-current="page">
                     <i class="fa-solid fa-house" aria-hidden="true"></i>
                     <span>Home</span>
                 </a>
@@ -93,7 +93,7 @@
     <!-- Conteúdo Principal -->
     <main role="main">
         <section class="hero">
-            <h2 class="sr-only">Bem-vindo à Nossa Voz FM</h2>
+            <h2 class="section-title">Bem-vindo à Nossa Voz FM</h2>
             <div class="hero-content">
                 <p>Ouça agora a <strong>Rádio Comunitária Nossa Voz FM</strong>, sua voz em Duas Estradas!</p>
                 <button class="play-button" onclick="document.querySelector('audio').play()">
@@ -103,7 +103,7 @@
         </section>
         
         <section class="destaques">
-            <h2>Programação em Destaque</h2>
+            <h2 class="section-title">Programação em Destaque</h2>
             <div class="cards">
                 <article class="card">
                     <h3>Contraponto</h3>
@@ -125,7 +125,7 @@
             <div class="player-content">
                 <!-- Logo -->
                 <div class="nv-logo">
-                    <img src="assets/icones/logotipo_png.png" alt="Logo Rádio Nossa Voz FM">
+                    <img src="assets/icones/logotipo_png.png" alt="Logo Rádio Nossa Voz FM" />
                 </div>
 
                 <!-- Informações -->
@@ -154,7 +154,7 @@
                 <!-- Player de Áudio -->
                 <div class="nv-audio">
                     <audio controls preload="none">
-                        <source src="https://server04.srvsh.com.br:7682/stream;" type="audio/mpeg">
+                        <source src="https://server04.srvsh.com.br:7682/stream;" type="audio/mpeg" />
                         Seu navegador não suporta o elemento de áudio.
                     </audio>
                 </div>
@@ -162,7 +162,7 @@
         </section>
     </div>
 
-    <!-- Botão Mostrar/Recolher (fora do container) -->
+    <!-- Botão Mostrar/Recolher -->
     <button class="player-toggle" type="button" aria-expanded="true">
         <i class="fa-solid fa-chevron-down"></i>
         <span class="toggle-text">Recolher</span>
@@ -173,15 +173,103 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     
-    <!-- Rodapé -->
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <p>&copy; 2025 RadCom Nossa Voz FM. Todos os direitos reservados.</p>
-            <p>Frequência: 87.9 MHz | Duas Estradas - Paraíba</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5583991971127" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>RadCom Nossa Voz FM</h3>
+                    <p>
+                        <i class="fas fa-microphone" aria-hidden="true"></i>
+                        A Rádio feita pra você!
+                    </p>
+
+                    <p>
+                        <i class="fas fa-radio" aria-hidden="true"></i>
+                        ZYX 734 - 104.9MHZ FM
+                    </p>
+                    <div class="footer-column footer-logo">
+                        <span class="institucional">Uma emissora da</span>
+                        <a href="https://acmmde.blogspot.com/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Site da ACMMDE">
+                            <img src="assets/icones/logo_acmmde.png" alt="ACMMDE" />
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="/#sobre">História da Rádio</a></li>
+                        <li><a href="/#programacao">Programação</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <address>
+                        <p>
+                            <span class="sr-only">Endereço:</span>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            Rua São João, s/n - Centro,<br>
+                            Duas Estradas - PB, 58265-000
+                        </p>
+
+                        <p>
+                            <span class="sr-only">Telefone:</span>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+5583991971127">(83) 99197-1127</a>
+                        </p>
+                        <p>
+                            <span class="sr-only">Email:</span>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:nossavozfm@gmail.com">nossavozfm@gmail.com</a>
+                        </p>
+                    </address>
+                </div>
+
+                <div class="footer-column footer-app">
+                        <h3>Baixe nosso aplicativo</h3>
+                    <ul class="app-links">
+                        <li>
+                            <a href="https://player.srvsh.com.br/player-app-multi-plataforma/7682"
+                            target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-google-play"></i> Android
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://player.srvsh.com.br/player-app-multi-plataforma/7682"
+                            target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-apple"></i> iPhone
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/nossavozfmduasestradas" aria-label="Facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nossavozfm/" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="http://www.youtube.com/@nossavozfm-duasestradas6078" aria-label="YouTube" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.radios.com.br/aovivo/radio-nossa-voz-1049-fm/32762" aria-label="RadiosNet" target="_blank">
+                        <i class="fas fa-headphones"></i>
+                    </a>
+                </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 RadCom Nossa Voz FM – Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
