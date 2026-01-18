@@ -79,11 +79,7 @@ header {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-
-/* ============================================
-   HEADER
-   ============================================ */
-
+/* Header */
 
 @keyframes moveBackground {
     from { transform: translate(0, 0); }
@@ -202,17 +198,17 @@ footer {
     background: #c4161c;
     color: var(--footer-color);
     border-bottom: 2px solid var(--primary-color);
-    padding-top: 2.5rem;   /* antes 4rem */
+    padding-top: 2.5rem;   
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 80px; /* mantém por causa do player *//* espaço real para o player */
+    padding-bottom: 80px; 
     
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.8rem; /* antes 3rem */
+    gap: 1.8rem; 
     align-items: flex-start;
 }
 
@@ -254,15 +250,15 @@ footer {
 
 .footer-logo {
     position: relative;
-    height: 120px;        /* altura controlada */
-    overflow: visible;   /* permite a logo “sair” */
+    height: 120px;        
+    overflow: visible;  
 }
 
 .footer-logo img {
-    height: 260px;              /* cresce a imagem */
-    margin-top: -80px;          /* sobe para não empurrar o footer */
+    height: 260px;              
+    margin-top: -80px;         
     margin-left: -20px;
-    margin-bottom: 10px;        /* reduz impacto vertical */
+    margin-bottom: 10px;        
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
     border-radius: 6px;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -312,14 +308,6 @@ footer address a:hover {
 }
 
 .footer-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 0.8rem;
-}
-
-.footer-social {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,8 +325,6 @@ footer address a:hover {
   color: var(--secondary-color);
   transform: translateY(-2px);
 }
-
-
 
 @keyframes static {
     0% { transform: translate(0, 0); }
@@ -385,17 +371,14 @@ footer address a:hover {
     color: #ffd166; 
 }
 
-
-
-
 /* Whatsapp flutuante */
 .whatsapp-float {
     position: fixed;
-    bottom: 100px;
+    bottom: 130px; 
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: var(--secondary-color);
+    background-color: var(--whatsapp-color);
     color: var(--text-light);
     border-radius: 50%;
     display: flex;
@@ -405,7 +388,7 @@ footer address a:hover {
     text-decoration: none;
     box-shadow: var(--shadow);
     z-index: 999;
-    transition: var(--transition);
+    transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .whatsapp-float:hover {
@@ -418,9 +401,7 @@ footer address a:hover {
     transform: scale(0.95);
 }
 
-/* ============================================
-   PLAYER DE ÁUDIO FIXO - VERSÃO FINAL
-   ============================================ */
+/* Player do footer */
 
 .player-container {
     position: fixed;
@@ -435,13 +416,13 @@ footer address a:hover {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ESTADO RECOLHIDO */
+/* Estado recolhido */
 .player-container.collapsed {
     height: 40px;
     background: linear-gradient(90deg, #8a0c15, #a10e19);
 }
 
-/* CONTEÚDO DO PLAYER */
+/* Conteúdo do player */
 .player-footer {
     background: transparent;
     padding: 0.8rem 1.5rem;
@@ -451,7 +432,7 @@ footer address a:hover {
     height: 100%;
 }
 
-/* LAYOUT DO CONTEÚDO */
+/* Layout de conteúdo */
 .player-content {
     display: flex;
     align-items: center;
@@ -459,7 +440,7 @@ footer address a:hover {
     flex: 1;
 }
 
-/* LOGO */
+/* Logo para o player */
 .nv-logo img {
     height: 50px;
     width: auto;
@@ -467,13 +448,13 @@ footer address a:hover {
     border-radius: 4px;
 }
 
-/* INFORMAÇÕES */
+/* Informações */
 .nv-info {
     flex: 1;
     min-width: 0;
 }
 
-/* LINHA AO VIVO */
+/* Linha AO VIVO */
 .nv-live-line {
     display: flex;
     align-items: center;
@@ -481,7 +462,7 @@ footer address a:hover {
     margin-bottom: 0.2rem;
 }
 
-/* BADGE "AO VIVO" */
+/* Badge "AO VIVO" */
 .nv-live-badge {
     background-color: var(--text-light);
     color: var(--primary-color);
@@ -509,7 +490,7 @@ footer address a:hover {
     50% { opacity: 0.5; }
 }
 
-/* TÍTULO DO PROGRAMA */
+/* Título do programa */
 .nv-title {
     font-size: 0.95rem;
     font-weight: 400;
@@ -528,7 +509,7 @@ footer address a:hover {
     color: var(--text-light);
 }
 
-/* PRÓXIMO PROGRAMA */
+/* Próximo programa */
 .nv-next {
     font-size: 0.8rem;
     opacity: 0.85;
@@ -536,7 +517,7 @@ footer address a:hover {
     margin-top: 0.1rem;
 }
 
-/* PLAYER DE ÁUDIO */
+/* Player de aúdio */
 .nv-audio {
     flex-shrink: 0;
 }
@@ -558,7 +539,7 @@ footer address a:hover {
     font-size: 0.8rem;
 }
 
-/* EQUALIZER ANIMADO */
+/* Animação do Equalizer */
 .equalizer {
     display: flex;
     align-items: center;
@@ -590,7 +571,7 @@ footer address a:hover {
     }
 }
 
-/* BOTÃO MOSTRAR/RECOLHER */
+/* Botão mostrar/recolher */
 .player-toggle {
     position: fixed;
     bottom: 80px; 
@@ -637,30 +618,7 @@ footer address a:hover {
     transform: rotate(180deg);
 }
 
-/* WHATSAPP FLUTUANTE */
-.whatsapp-float {
-    position: fixed;
-    bottom: 130px; /* Posição quando player aberto */
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: var(--whatsapp-color);
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    text-decoration: none;
-    box-shadow: var(--shadow);
-    z-index: 999;
-    transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-/* ============================================
-   ESTILOS PARA ESTADO RECOLHIDO
-   ============================================ */
+/* Estilo para o player redolhido */
 
 /* Esconde elementos quando recolhido */
 .player-container.collapsed .nv-logo,
@@ -711,10 +669,7 @@ footer address a:hover {
     color: var(--text-light);
 }
 
-/* ============================================
-   ANIMAÇÕES
-   ============================================ */
-
+/* Animações */
 @keyframes slideUp {
     from {
         transform: translateY(100%);
@@ -728,11 +683,7 @@ footer address a:hover {
     animation: slideUp 0.4s ease-out;
 }
 
-
-/* ============================================
-   ACESSIBILIDADE
-   ============================================ */
-
+/* Acessibilidade */
 .player-toggle:focus {
     outline: 2px solid rgba(255, 255, 255, 0.8);
     outline-offset: 2px;
@@ -751,9 +702,7 @@ footer address a:hover {
     outline-offset: 2px;
 }
 
-/* ============================================
-   ESTADOS ESPECIAIS
-   ============================================ */
+/* Estados do Player */
 
 /* Player tocando */
 .player-container.is-playing .equalizer {
